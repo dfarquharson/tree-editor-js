@@ -10,6 +10,7 @@
             <h2>Tree Editor</h2>
         </div>
         <div id="event-listener-area">
+            <h3>Event Listener Area</h3>
             <p id="mouse-pos"></p>
             <p id="mouse-click-pos"></p>
             <p id="keychord"></p>
@@ -26,8 +27,9 @@
             <input id="user-specified-map" type="text"
                    value="examples/master/attributed_xml/poCustWrite.xtl"
                    size="60"></input>
-            <button onClick="loadMap()">Load Stuff</button>
-            <button onClick="clearCurrentMap()">Clear Map</button>
+            <button id="load-map-button" onClick="loadMap()">Load Map</button>
+            <button id="save-map-button" onClick="saveMap()" disabled>Publish Map</button>
+            <button id="clear-map-button" onClick="clearMap()">Clear Map</button>
             <p id="response-area"></p>
         </div>
         <div id="minibuffer">
