@@ -1,3 +1,6 @@
+// need to make sure I respect context
+// also, I need to make these fully configurable
+// because, if they aren't I'm guaranteed to conflict with user preferences.
 function updateKeyChord(e) {
     document.getElementById("keychord").innerHTML = "keypressed: " + e.keyCode;
 }
