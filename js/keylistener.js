@@ -47,8 +47,6 @@ function keysPressed(e) {
         e.preventDefault();
     } else if (keys[17] && keys[70]) {
         console.log("You pressed Ctrl + F and I overrode the default like a cunt.");
-        e.preventDefault();
-    } else if (keys[191]) {
         search();
         e.preventDefault();
     }
