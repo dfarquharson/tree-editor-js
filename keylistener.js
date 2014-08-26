@@ -32,5 +32,5 @@ function keysReleased(e) {
     console.log("just released: " + e.keyCode);
 }
 
-window.addEventListener("keydown", keysPressed, false);
-window.addEventListener("keyup", keysReleased, false);
+document.addEventListener("keydown", keysPressed, false);
+document.addEventListener("keyup", keysReleased, false);
