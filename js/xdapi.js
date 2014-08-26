@@ -20,6 +20,7 @@ var loadMap = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById("response-area").innerHTML = xhr.response;
             document.getElementById("save-map-button").removeAttribute("disabled");
+            document.getElementById("compile-map-button").removeAttribute("disabled");
             var mymap = JSON.parse(xhr.response);
             console.log("input fqjn: " + mymap.input.children[0].atts.fullyQualifiedJavaName);
             console.log("output fqjn: " + getMapName(mymap));
@@ -47,4 +48,10 @@ var saveMap = function () {
     //xhr.setRequestHeader("Access-Control-Request-Header", "POST");
     //xhr.send();
     console.log("saved map: " + map_name);
+}
+
+var compileMap = function () {
+    var map_json = JSON.parse(document.getElementById("response-area").textContent);
+    var map_name = getMapName(map_json);
+    console.log("compiled map: " + map_name);
 }

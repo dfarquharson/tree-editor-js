@@ -7,3 +7,10 @@ function displayViewportSize(e) {
 }
 
 window.addEventListener("resize", displayViewportSize, false);
+
+var tiles = ["tile 1", "tile 2", "tile 3", "tile 4", "tile 5",
+             "tile 6", "tile 7", "tile 8", "tile 9"]
+
+var focus_tile = function (n) {
+    console.log("focusing on " + tiles[n]);
+}

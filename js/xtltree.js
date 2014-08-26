@@ -15,5 +15,6 @@ var clearMap = function () {
             getMapName(JSON.parse(document.getElementById("response-area").textContent)));
     document.getElementById("response-area").innerHTML = "";
     document.getElementById("save-map-button").setAttribute("disabled", true);
+    document.getElementById("compile-map-button").setAttribute("disabled", true);
 }
 

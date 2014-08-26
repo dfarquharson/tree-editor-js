@@ -9,6 +9,11 @@ function search() {
     console.log("You are searching, right?");
 }
 
+function focus_and_prevent(e, n) {
+    focus_tile(n);
+    e.preventDefault();
+}
+
 var keys = [];
 
 function keysPressed(e) {
@@ -16,32 +21,23 @@ function keysPressed(e) {
     updateKeyChord(e);
 
     if (keys[16] && keys[17] && keys[49]) {
-        console.log("You pressed Ctrl + Shift + 1");
-        e.preventDefault();
+        focus_and_prevent(e, 0);
     } else if (keys[16] && keys[17] && keys[50]) {
-        console.log("You pressed Ctrl + Shift + 2");
-        e.preventDefault();
+        focus_and_prevent(e, 1);
     } else if (keys[16] && keys[17] && keys[51]) {
-        console.log("You pressed Ctrl + Shift + 3");
-        e.preventDefault();
+        focus_and_prevent(e, 2);
     } else if (keys[16] && keys[17] && keys[52]) {
-        console.log("You pressed Ctrl + Shift + 4");
-        e.preventDefault();
+        focus_and_prevent(e, 3);
     } else if (keys[16] && keys[17] && keys[53]) {
-        console.log("You pressed Ctrl + Shift + 5");
-        e.preventDefault();
+        focus_and_prevent(e, 4);
     } else if (keys[16] && keys[17] && keys[54]) {
-        console.log("You pressed Ctrl + Shift + 6");
-        e.preventDefault();
+        focus_and_prevent(e, 5);
     } else if (keys[16] && keys[17] && keys[55]) {
-        console.log("You pressed Ctrl + Shift + 7");
-        e.preventDefault();
+        focus_and_prevent(e, 6);
     } else if (keys[16] && keys[17] && keys[56]) {
-        console.log("You pressed Ctrl + Shift + 8");
-        e.preventDefault();
+        focus_and_prevent(e, 7);
     } else if (keys[16] && keys[17] && keys[57]) {
-        console.log("You pressed Ctrl + Shift + 9");
-        e.preventDefault();
+        focus_and_prevent(e, 8);
     } else if (keys[17] && keys[186]) {
         console.log("Focus dat minibuffer");
         e.preventDefault();
