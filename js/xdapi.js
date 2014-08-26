@@ -4,9 +4,12 @@ var loadRepos = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var repo_list = JSON.parse(xhr.response);
+            var repo_list = JSON.parse(xhr.response).repos;
             document.getElementById("repo-count").textContent =
-                "Repo Count: " + repo_list.repos.length;
+                "Repo Count: " + repo_list.length;
+            document.getElementById("repo-list").textContent = 
+                repo_list.toString();
+            // really want to "(take 10 repo_list)"
         }
     }
     var url = xdapi_root + "list";
