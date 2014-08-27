@@ -1,15 +1,16 @@
-var xdapi_root = "http://localhost:5000/xd/";
+var xdapi_root = "http://localhost:5000/xd/",
+    REPO_LIST = [];
 
 var loadRepos = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var repo_list = JSON.parse(xhr.response).repos;
+            REPO_LIST = JSON.parse(xhr.response).repos;
             document.getElementById("repo-count").textContent =
-                "Repo Count: " + repo_list.length;
+                "Repo Count: " + REPO_LIST.length;
             document.getElementById("repo-list").textContent = 
-                repo_list.toString();
-            // really want to "(take 10 repo_list)"
+                REPO_LIST.slice(0, 10).toString();
+            // too limiting. Need some way to browse.
         }
     }
     var url = xdapi_root + "list";

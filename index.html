@@ -16,8 +16,9 @@
             <p id="keychord"></p>
         </div>
         <div id="search-area">
-            <label id="repo-count">Repo Count: No repos loaded</label>
+            <label id="repo-count">Total Repo Count: No repos loaded</label>
             <button onClick="loadRepos()">Load Repos</button>
+            <br/><input id="search-field" type="text" size="60" onKeyUp="filterRepos()"></input>
             <p id="repo-list">no repos loaded...</p>
         </div>
         <div id="tiling-area">
@@ -45,5 +46,6 @@
         <script src="js/xtltree.js" type="text/javascript"></script>
         <script src="js/tilemanager.js" type="text/javascript"></script>
         <script src="js/persistentdata.js" type="text/javascript"></script>
+        <script src="js/search.js" type="text/javascript"></script>
     </body>
 </html>
