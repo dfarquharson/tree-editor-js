@@ -49,7 +49,7 @@ function keysPressed(e) {
         focus_and_prevent(e, 7);
     } else if (prefix && keys[57]) { // Ctrl Shift 9
         focus_and_prevent(e, 8);
-    } else if (prefix && keys[78]) { // Ctrl Shift N
+    } else if (prefix && keys[84]) { // Ctrl Shift N
         fn_and_prevent(e, makeNewTile);
     } else if (prefix && keys[67]) { // Ctrl Shift C
         fn_and_prevent(e, cloneSelectedTile());
