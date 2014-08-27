@@ -12,16 +12,42 @@ div {
 
 #event-listener-area {
     border: 5px solid black;
+    height: 139px;
     overflow: auto;
+    //display: none;
 }
-
 
 #search-area {
     border: 5px solid black;
+    overflow: auto;
+    display: none;
+}
+
+#tiling-area {
+    border: 5px solid black;
+    height: 400px;
+    overflow: auto;
+}
+
+#tile-holder {
+    border: 2px solid red;
+    height: 346px;
+    overflow: auto;
+}
+
+#tile {
+    // need to be calculating all these px values to stay sane and generally just not be stupid;
+    border: 3px solid green;
+    height: 340px;
+    width: 500px;
+    margin: 0em;
+    float: left;
     overflow: auto;
 }
 
 #map-workspace {
     border: 5px solid black;
+    height: 400px;
     overflow: auto;
+    display: none;
 }

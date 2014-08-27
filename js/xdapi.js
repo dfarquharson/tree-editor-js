@@ -1,4 +1,5 @@
 var xdapi_root = "http://localhost:5000/xd/",
+    xtlbld = "http://localhost:8000/xd/map_jar",
     REPO_LIST = [];
 
 var loadRepos = function () {
@@ -7,7 +8,7 @@ var loadRepos = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             REPO_LIST = JSON.parse(xhr.response).repos;
             document.getElementById("repo-count").textContent =
-                "Repo Count: " + REPO_LIST.length;
+                "Total Repo Count: " + REPO_LIST.length;
             document.getElementById("repo-list").textContent = 
                 REPO_LIST.slice(0, 10).toString();
             // too limiting. Need some way to browse.

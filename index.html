@@ -17,21 +17,27 @@
         </div>
         <div id="search-area">
             <label id="repo-count">Total Repo Count: No repos loaded</label>
-            <button onClick="loadRepos()">Load Repos</button>
+            <button onclick="loadRepos()">Load Repos</button>
             <br/><input id="search-field" type="text" size="60" onKeyUp="filterRepos()"></input>
             <p id="repo-list">no repos loaded...</p>
         </div>
         <div id="tiling-area">
+            <button id="make-new-tile" onclick="makeNewTile()">Make new Tile</button>
+            <button id="clone-selected-tile" onclick="cloneSelectedTile()">Clone Selected Tile</button>
+            <button id="delete-selected-tile" onclick="deleteSelectedTile()">Delete Selected Tile</button>
+            <div id="tile-holder">
+                <!-- tiles here -->
+            </div>
         </div>
         <div id="map-workspace">
             <!-- the tiling magic exists here -->
             <input id="user-specified-map" type="text"
                    value="examples/master/attributed_xml/poCustWrite.xtl"
                    size="60"></input>
-            <button id="load-map-button" onClick="loadMap()">Load Map</button>
-            <button id="save-map-button" onClick="saveMap()" disabled>Publish Map</button>
-            <button id="compile-map-button" onClick="compileMap()" disabled>Compile Map</button>
-            <button id="clear-map-button" onClick="clearMap()">Clear Map</button>
+            <button id="load-map-button" onclick="loadMap()">Load Map</button>
+            <button id="save-map-button" onclick="saveMap()" disabled>Publish Map</button>
+            <button id="compile-map-button" onclick="compileMap()" disabled>Compile Map</button>
+            <button id="clear-map-button" onclick="clearMap()">Clear Map</button>
             <p id="response-area"></p>
         </div>
         <div id="minibuffer">

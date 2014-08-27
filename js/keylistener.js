@@ -10,35 +10,51 @@ function search() {
     console.log("You are searching, right?");
 }
 
+// combine this and fn_and_prevent with better HoF
 function focus_and_prevent(e, n) {
     focus_tile(n);
     e.preventDefault();
 }
 
+function fn_and_prevent(e, fn) {
+    fn();
+    e.preventDefault();
+}
+
 var keys = [];
+
+var prefix = function () {
+    return keys[16] && keys[17];
+}
 
 function keysPressed(e) {
     keys[e.keyCode] = true;
     updateKeyChord(e);
 
-    if (keys[16] && keys[17] && keys[49]) {
+    if (prefix && keys[49]) {        // Ctrl Shift 1
         focus_and_prevent(e, 0);
-    } else if (keys[16] && keys[17] && keys[50]) {
+    } else if (prefix && keys[50]) { // Ctrl Shift 2
         focus_and_prevent(e, 1);
-    } else if (keys[16] && keys[17] && keys[51]) {
+    } else if (prefix && keys[51]) { // Ctrl Shift 3
         focus_and_prevent(e, 2);
-    } else if (keys[16] && keys[17] && keys[52]) {
+    } else if (prefix && keys[52]) { // Ctrl Shift 4
         focus_and_prevent(e, 3);
-    } else if (keys[16] && keys[17] && keys[53]) {
+    } else if (prefix && keys[53]) { // Ctrl Shift 5
         focus_and_prevent(e, 4);
-    } else if (keys[16] && keys[17] && keys[54]) {
+    } else if (prefix && keys[54]) { // Ctrl Shift 6
         focus_and_prevent(e, 5);
-    } else if (keys[16] && keys[17] && keys[55]) {
+    } else if (prefix && keys[55]) { // Ctrl Shift 7
         focus_and_prevent(e, 6);
-    } else if (keys[16] && keys[17] && keys[56]) {
+    } else if (prefix && keys[56]) { // Ctrl Shift 8
         focus_and_prevent(e, 7);
-    } else if (keys[16] && keys[17] && keys[57]) {
+    } else if (prefix && keys[57]) { // Ctrl Shift 9
         focus_and_prevent(e, 8);
+    } else if (prefix && keys[78]) { // Ctrl Shift N
+        fn_and_prevent(e, makeNewTile);
+    } else if (prefix && keys[67]) { // Ctrl Shift C
+        fn_and_prevent(e, cloneSelectedTile());
+    } else if (prefix && keys[68]) { // Ctrl Shift D
+        fn_and_prevent(e, deleteSelectedTile());
     } else if (keys[17] && keys[186]) {
         console.log("Focus dat minibuffer");
         e.preventDefault();
