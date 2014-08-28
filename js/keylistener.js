@@ -17,13 +17,7 @@ function focus_and_prevent(e, n) {
 }
 
 function fn_and_prevent(e, f) {
-    //f();
-    // because I am still a js noob, not sure
-    // why js runtimes yell at me when I call
-    // f directly
-    if (typeof f === "function") {
-        f();
-    }
+    f();
     e.preventDefault();
 }
 
@@ -55,12 +49,12 @@ function keysPressed(e) {
         focus_and_prevent(e, 7);
     } else if (prefix && keys[57]) { // Ctrl Shift 9
         focus_and_prevent(e, 8);
-    } else if (prefix && keys[84]) { // Ctrl Shift N
+    } else if (prefix && keys[84]) { // Ctrl Shift T
         fn_and_prevent(e, makeNewTile);
     } else if (prefix && keys[67]) { // Ctrl Shift C
-        fn_and_prevent(e, cloneSelectedTile());
+        fn_and_prevent(e, cloneSelectedTile);
     } else if (prefix && keys[68]) { // Ctrl Shift D
-        fn_and_prevent(e, deleteSelectedTile());
+        fn_and_prevent(e, deleteSelectedTile);
     } else if (keys[17] && keys[186]) {
         console.log("Focus dat minibuffer");
         e.preventDefault();
