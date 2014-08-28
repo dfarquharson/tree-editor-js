@@ -10,6 +10,10 @@ function search() {
     console.log('You are searching, right?');
 }
 
+function log(x) {
+    console.log(x);
+}
+
 function fn_and_prevent(e, f, args) {
     e.preventDefault();
     return f.apply(null, args);
@@ -50,12 +54,9 @@ function keysPressed(e) {
     } else if (prefix && keys[68]) { // Ctrl Shift D
         fn_and_prevent(e, deleteSelectedTile);
     } else if (keys[17] && keys[186]) {
-        console.log('Focus dat minibuffer');
-        e.preventDefault();
+        fn_and_prevent(e, log, ['Focus dat minibuffer']);
     } else if (keys[17] && keys[70]) {
-        console.log('You pressed Ctrl + F and I overrode the default like a cunt.');
-        search();
-        e.preventDefault();
+        fn_and_prevent(e, search);
     }
 }
 
