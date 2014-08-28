@@ -16,8 +16,14 @@ function focus_and_prevent(e, n) {
     e.preventDefault();
 }
 
-function fn_and_prevent(e, fn) {
-    fn();
+function fn_and_prevent(e, f) {
+    //f();
+    // because I am still a js noob, not sure
+    // why js runtimes yell at me when I call
+    // f directly
+    if (typeof f === "function") {
+        f();
+    }
     e.preventDefault();
 }
 
