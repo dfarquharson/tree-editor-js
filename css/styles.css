@@ -30,7 +30,7 @@ div {
 }
 
 #tile-holder {
-    border: 2px solid red;
+    border: 2px solid black;
     height: 346px;
     overflow: auto;
 }

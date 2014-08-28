@@ -2,9 +2,9 @@
 // maybe I'll throw in xtl search related functions?
 
 function filterRepos() {
-    // side effects contained to div id="search-area"
-    var query = document.getElementById("search-field").value.toLowerCase().split(" ");
-    console.log("query: " + query);
+    // side effects contained to div id='search-area'
+    var query = document.getElementById('search-field').value.toLowerCase().split(' ');
+    console.log('query: ' + query);
     var matches = [];
     for (var i = 0; i < REPO_LIST.length; i++) {
         var allmatched = true;
@@ -23,6 +23,6 @@ function filterRepos() {
         }
     }
     console.log(matches.toString());
-    document.getElementById("repo-list").textContent = matches.toString();
+    document.getElementById('repo-list').textContent = matches.toString();
     return matches;
 }
