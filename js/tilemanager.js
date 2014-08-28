@@ -1,6 +1,8 @@
 // need to do some viewportWidth/viewportHeight calculations for autotiling
 // also need to provide user-specified resizing
 
+// beware: thar be a mess a mutable state in here
+
 function displayViewportSize(e) {
     console.log('viewport width: ' + document.documentElement.clientWidth +
             'viewport height: ' + document.documentElement.clientHeight);
@@ -8,11 +10,30 @@ function displayViewportSize(e) {
 
 window.addEventListener('resize', displayViewportSize, false);
 
-var tiles = ['tile 1', 'tile 2', 'tile 3', 'tile 4', 'tile 5',
-             'tile 6', 'tile 7', 'tile 8', 'tile 9']
+var __tileHolder = document.getElementById('tile-holder'),
+    //tiles = ['tile 1', 'tile 2', 'tile 3', 'tile 4', 'tile 5',
+             //'tile 6', 'tile 7', 'tile 8', 'tile 9'],
+    focused = null,
+    focusStyle = "3px solid green",
+    unFocusStyle = "3px solid grey";
 
-var focusTile = function (n) {
-    console.log('focusing on ' + tiles[n]);
+function unFocus() {
+    if (focused !== null) {
+        focused.style.border = unFocusStyle;
+        focused = null;
+    }
+}
+
+function setFocused(t) {
+    unFocus()
+    focused = t;
+    focused.style.border = focusStyle;
+}
+
+function focusTile(n) {
+    if (n < __tileHolder.children.length) {
+        setFocused(__tileHolder.children[n]);
+    }
 }
 
 function increase_tile_size_left() {
@@ -31,12 +52,10 @@ function increase_tile_size_right() {
     console.log("increase tile size right.");
 }
 
-var resizeAllTiles = function () {
-    //do the maths and do the resize based on # of children
+function resizeAllTiles() {
     var len = __tileHolder.children.length;
     for (var i = 0; i < len; i++) {
         var currentTile = __tileHolder.children[i];
-        console.log(currentTile);
         if (currentTile.getAttribute('id') === 'tile') {
             currentTile.style.height = __tileHolder.offsetHeight - 10 + 'px';
             currentTile.style.width = ((1/len) * 100) - 0.4 + '%';
@@ -44,13 +63,15 @@ var resizeAllTiles = function () {
     }
 }
 
-var __tileHolder = document.getElementById('tile-holder');
-
 function makeNewTile() {
     if (__tileHolder.children.length < 30) {
         var newTile = document.createElement('div');
         var content = document.createElement('label');
         newTile.setAttribute('id', 'tile');
+        // hate how this is duplicated from setFocused. Need to fix.
+        //newTile.onmouseover = function() { unFocus(); focused = newTile;
+                                           //newTile.style.border = focusStyle; }
+        //newTile.onmouseleave = unFocus();
         __tileHolder.appendChild(newTile);
         newTile.appendChild(content);
         content.textContent = __tileHolder.children.length;
@@ -65,8 +86,24 @@ function cloneSelectedTile() {
 }
 
 function deleteSelectedTile() {
-    if (__tileHolder.lastChild !== null) {
-        __tileHolder.removeChild(__tileHolder.lastChild);
+    if (focused) {
+        function getIndexOf(tile, holder) {
+            for (var i = 0; i < holder.children.length; i++) {
+                if (holder.children[i] === tile) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        function focusNextTile(i) {
+            i > 0 ? __tileHolder.children.length > i ?
+                    focusTile(i) : focusTile(__tileHolder.children.length-1) :
+                    focusTile(0);
+        }
+        var i = getIndexOf(focused, __tileHolder);
+        __tileHolder.removeChild(focused);
+        unFocus();
+        focusNextTile(i);
         resizeAllTiles();
     }
 }

@@ -37,7 +37,7 @@ div {
 
 #tile {
     // need to be calculating all these px values to stay sane and generally just not be stupid;
-    border: 3px solid green;
+    border: 3px solid grey;
     //height: 340px;
     //width: 500px;
     margin: 0em;

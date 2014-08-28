@@ -61,9 +61,9 @@ function keysPressed(e) {
         fn_and_prevent(e, increase_tile_size_up);
     } else if (prefix() && (keys[76] || keys[39])) { // Ctrl Shift L/Right
         fn_and_prevent(e, increase_tile_size_right);
-    } else if (keys[17] && keys[186]) {
+    } else if (keys[17] && keys[186]) { // Ctrl ;
         fn_and_prevent(e, log, ['Focus dat minibuffer']);
-    } else if (keys[17] && keys[70]) {
+    } else if (keys[17] && keys[70]) {  // Ctrl F
         fn_and_prevent(e, search);
     }
 }
