@@ -30,7 +30,9 @@
             <label id="repo-count">Total Repo Count: No repos loaded</label>
             <button onclick="loadRepos()">Load Repos</button>
             <br/><input id="search-field" type="text" size="60" onKeyUp="filterRepos()"></input>
-            <p id="repo-list">no repos loaded...</p>
+            <ul id="repo-list">
+                <li>no repos loaded...</p>
+            </ul>
         </div>
         <div id="map-workspace">
             <!-- the tiling magic exists here -->
@@ -42,6 +44,9 @@
             <button id="compile-map-button" onclick="compileMap()" disabled>Compile Map</button>
             <button id="clear-map-button" onclick="clearMap()">Clear Map</button>
             <p id="response-area"></p>
+        </div>
+        <div id="compilation-result-area">
+            <!-- not sure what this is supposed to look like -->
         </div>
         <div id="minibuffer">
             <!-- do really cool minibuffer stuff here -->

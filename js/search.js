@@ -23,6 +23,15 @@ function filterRepos() {
         }
     }
     console.log(matches.toString());
-    document.getElementById('repo-list').textContent = matches.toString();
+    //document.getElementById('repo-list').textContent = matches.toString();
+    var repolist = document.getElementById('repo-list');
+    while (repolist.children.length > 0) {
+        repolist.removeChild(repolist.children[0]);
+    }
+    for (var i = 0; i < matches.length; i++) {
+        var match = document.createElement('li');
+        match.textContent = matches[i];
+        repolist.appendChild(match);
+    }
     return matches;
 }

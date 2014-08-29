@@ -9,8 +9,9 @@ var loadRepos = function () {
             REPO_LIST = JSON.parse(xhr.response).repos;
             document.getElementById('repo-count').textContent =
                 'Total Repo Count: ' + REPO_LIST.length;
-            document.getElementById('repo-list').textContent = 
-                REPO_LIST.slice(0, 10).toString();
+            filterRepos();
+            //document.getElementById('repo-list').textContent = 
+                //REPO_LIST.slice(0, 10).toString();
             // too limiting. Need some way to browse.
         }
     }
@@ -58,5 +59,14 @@ var saveMap = function () {
 var compileMap = function () {
     var map_json = JSON.parse(document.getElementById('response-area').textContent);
     var map_name = getMapName(map_json);
-    console.log('compiled map: ' + map_name);
+    var result_area = document.getElementById('compilation-result-area');
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            result_area.textContent = xhr.response;
+        }
+    }
+    xhr.open('POST', xtlbld, true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(map_json));
 }
