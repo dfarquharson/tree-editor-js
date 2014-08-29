@@ -59,11 +59,11 @@ var saveMap = function () {
 var compileMap = function () {
     var map_json = JSON.parse(document.getElementById('response-area').textContent);
     var map_name = getMapName(map_json);
-    var result_area = document.getElementById('compilation-result-area');
+    var compilation_result = document.getElementById('compilation-result');
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            result_area.textContent = xhr.response;
+            compilation_result.textContent = xhr.response;
         }
     }
     xhr.open('POST', xtlbld, true);

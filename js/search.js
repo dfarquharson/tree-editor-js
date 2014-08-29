@@ -23,7 +23,6 @@ function filterRepos() {
         }
     }
     console.log(matches.toString());
-    //document.getElementById('repo-list').textContent = matches.toString();
     var repolist = document.getElementById('repo-list');
     while (repolist.children.length > 0) {
         repolist.removeChild(repolist.children[0]);

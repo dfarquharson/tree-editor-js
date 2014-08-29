@@ -17,3 +17,7 @@ var clearMap = function () {
     document.getElementById('save-map-button').setAttribute('disabled', true);
     document.getElementById('compile-map-button').setAttribute('disabled', true);
 }
+
+var clearCompilationArea = function () {
+    document.getElementById('compilation-result').textContent = '';
+}

@@ -14,7 +14,7 @@ div {
     border: 5px solid black;
     height: 139px;
     overflow: auto;
-    //display: none;
+    display: none;
 }
 
 #search-area {

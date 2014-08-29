@@ -153,4 +153,5 @@ function setMapperTemplate() {
     deleteAllTiles();
     createNewTile(document.getElementById('search-area'));
     createNewTile(document.getElementById('map-workspace'));
+    focusTile(0);
 }
