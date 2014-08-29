@@ -24,7 +24,7 @@ function unFocus() {
     }
 }
 
-function setFocused(t) {
+function setFocus(t) {
     unFocus()
     focused = t;
     focused.style.border = focusStyle;
@@ -32,7 +32,7 @@ function setFocused(t) {
 
 function focusTile(n) {
     if (n < __tileHolder.children.length) {
-        setFocused(__tileHolder.children[n]);
+        setFocus(__tileHolder.children[n]);
     }
 }
 
@@ -58,7 +58,7 @@ function resizeAllTiles() {
         var currentTile = __tileHolder.children[i];
         if (currentTile.getAttribute('id') === 'tile') {
             currentTile.style.height = __tileHolder.offsetHeight - 10 + 'px';
-            currentTile.style.width = ((1/len) * 100) - 0.4 + '%';
+            currentTile.style.width = ((1/len) * 100) - 0.5 + '%';
         }
     }
 }
@@ -66,19 +66,53 @@ function resizeAllTiles() {
 function makeNewTile() {
     if (__tileHolder.children.length < 30) {
         var newTile = document.createElement('div');
-        var content = document.createElement('label');
         newTile.setAttribute('id', 'tile');
         // hate how this is duplicated from setFocused. Need to fix.
-        //newTile.onmouseover = function() { unFocus(); focused = newTile;
-                                           //newTile.style.border = focusStyle; }
-        //newTile.onmouseleave = unFocus();
+        newTile.onmouseover = function() { unFocus(); focused = newTile;
+                                           newTile.style.border = focusStyle; }
+        //newTile.onmouseleave = unFocus(); //unnecessary because onmouseover takes care of it
         __tileHolder.appendChild(newTile);
-        newTile.appendChild(content);
+        var content = document.createElement('label');
         content.textContent = __tileHolder.children.length;
+        //var content = document.getElementById('search-area');
+        //var content = document.getElementById('map-workspace');
+        //content.style.display = 'span';
+        newTile.appendChild(content);
+        unFocus();
+        setFocus(newTile);
         resizeAllTiles();
     } else {
-        console.log("do you really need more than 30 tiles?")
+        console.log("do you really need more than 30 tiles?");
     }
+}
+
+// supposed to be more general than makeNewTile, 
+// in order to more intelligently resize based on split direction
+function createNewTile(content) {
+    if (__tileHolder.children.length < 30) {
+        var newTile = document.createElement('div');
+        //var content = document.createElement('label');
+        newTile.setAttribute('id', 'tile');
+        newTile.appendChild(content);
+        newTile.onmouseover = function () { unFocus(); focused = newTile;
+                                            newTile.style.border = focusStyle; }
+        __tileHolder.appendChild(newTile);
+        unFocus();
+        setFocus(newTile);
+        resizeAllTiles();
+    } else {
+        console.log("do you really need more than 30 tiles?");
+    }
+}
+
+function splitSelectedTileVertical() {
+    // resize spawn new tile and resize only it and the focused tile
+    // switch focus to the new tile?
+    console.log("split vertical");
+}
+
+function splitSelectedTileHorizontal() {
+    console.log("split horizontal");
 }
 
 function cloneSelectedTile() {
@@ -106,4 +140,17 @@ function deleteSelectedTile() {
         focusNextTile(i);
         resizeAllTiles();
     }
+}
+
+function deleteAllTiles() {
+    while(__tileHolder.children.length > 0) {
+        __tileHolder.removeChild(__tileHolder.children[0]);
+    }
+}
+
+// TEMPLATES
+function setMapperTemplate() {
+    deleteAllTiles();
+    createNewTile(document.getElementById('search-area'));
+    createNewTile(document.getElementById('map-workspace'));
 }

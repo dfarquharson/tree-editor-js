@@ -18,14 +18,14 @@ div {
 }
 
 #search-area {
-    border: 5px solid black;
-    overflow: auto;
-    display: none;
+    //border: 5px solid black;
+    //overflow: auto;
+    //display: none;
 }
 
 #tiling-area {
     border: 5px solid black;
-    height: 400px;
+    height: 405px;
     overflow: auto;
 }
 
@@ -46,8 +46,8 @@ div {
 }
 
 #map-workspace {
-    border: 5px solid black;
-    height: 400px;
-    overflow: auto;
-    display: none;
+    //border: 5px solid black;
+    //height: 400px;
+    //overflow: auto;
+    //display: none;
 }

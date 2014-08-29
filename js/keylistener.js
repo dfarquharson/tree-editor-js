@@ -53,6 +53,12 @@ function keysPressed(e) {
         fn_and_prevent(e, cloneSelectedTile);
     } else if (prefix() && keys[68]) { // Ctrl Shift D
         fn_and_prevent(e, deleteSelectedTile);
+    } else if (prefix() && keys[173]) { // Ctrl Shift -
+        fn_and_prevent(e, splitSelectedTileHorizontal);
+    } else if (prefix() && keys[220]) { // Ctrl Shift |
+        fn_and_prevent(e, splitSelectedTileVertical);
+    /*
+     * These break text input shortcuts at the moment, which is supremely annoying
     } else if (prefix() && (keys[72] || keys[37])) { // Ctrl Shift H/Left
         fn_and_prevent(e, increase_tile_size_left);
     } else if (prefix() && (keys[74] || keys[40])) { // Ctrl Shift J/Down
@@ -61,6 +67,7 @@ function keysPressed(e) {
         fn_and_prevent(e, increase_tile_size_up);
     } else if (prefix() && (keys[76] || keys[39])) { // Ctrl Shift L/Right
         fn_and_prevent(e, increase_tile_size_right);
+    */
     } else if (keys[17] && keys[186]) { // Ctrl ;
         fn_and_prevent(e, log, ['Focus dat minibuffer']);
     } else if (keys[17] && keys[70]) {  // Ctrl F
