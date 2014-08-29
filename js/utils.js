@@ -3,3 +3,9 @@ function appendChildren(elem, children) {
         elem.appendChild(children[i]);
     }
 }
+
+function focusElem(elem) {
+    document.getElementById(elem).focus();
+}
+
+window.onload(focusElem('search-field'));
