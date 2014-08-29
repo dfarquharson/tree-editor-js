@@ -51,3 +51,7 @@ div {
     //overflow: auto;
     //display: none;
 }
+
+#minibuffer {
+    display: none;
+}

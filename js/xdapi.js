@@ -63,7 +63,7 @@ var compileMap = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            compilation_result.textContent = xhr.response;
+            createNewTile(createCompilationResult(xhr.response));
         }
     }
     xhr.open('POST', xtlbld, true);
