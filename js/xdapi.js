@@ -39,6 +39,7 @@ var loadMap = function () {
 }
 
 var saveMap = function () {
+    // need to ensure that content is there and is parseable as JSON
     var map_json = JSON.parse(document.getElementById('response-area').textContent);
     var map_name = getMapName(map_json);
     //var xhr = new XMLHttpRequest();
