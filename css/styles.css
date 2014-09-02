@@ -23,15 +23,24 @@ div {
     //display: none;
 }
 
+#map-workspace {
+    //border: 5px solid black;
+    //height: 400px;
+    //overflow: auto;
+    //display: none;
+}
+
 #tiling-area {
     border: 5px solid black;
-    height: 405px;
+    //height: 405px;
+    height: 800px;
     overflow: auto;
 }
 
 #tile-holder {
     border: 2px solid black;
-    height: 346px;
+    //height: 346px;
+    height: 746px;
     overflow: auto;
 }
 
@@ -43,13 +52,6 @@ div {
     margin: 0em;
     float: left;
     overflow: auto;
-}
-
-#map-workspace {
-    //border: 5px solid black;
-    //height: 400px;
-    //overflow: auto;
-    //display: none;
 }
 
 #minibuffer {
