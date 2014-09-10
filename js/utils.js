@@ -8,4 +8,15 @@ function focusElem(elem) {
     document.getElementById(elem).focus();
 }
 
-window.onload(focusElem('search-field'));
+function log(x) {
+    console.log(x);
+}
+
+function loadFunctions() {
+    log('onload events firing');
+    loadRepos();
+    setMapperTemplate();
+    focusElem('search-field');
+}
+
+window.onload(loadFunctions());

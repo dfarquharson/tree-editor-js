@@ -89,7 +89,6 @@ function keysPressed(e) {
 
 function keysReleased(e) {
     keys[e.keyCode] = false;
-    //console.log('just released: ' + e.keyCode);
 }
 
 document.addEventListener('keydown', keysPressed, false);
