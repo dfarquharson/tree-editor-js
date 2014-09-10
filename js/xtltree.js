@@ -12,10 +12,10 @@ var buildXTL = function (rawblob, elem) {
     console.log('build xtl stuff happening recursively');
     var newelem = document.createElement('div');
     if ('atts' in rawblob) {
-        var attselem = document.createElement('p');
-        var atts = rawblob['atts'];
-        var keys = Object.keys(atts);
-        var vals = [];
+        var attselem = document.createElement('p'),
+            atts = rawblob['atts'],
+            keys = Object.keys(atts),
+            vals = [];
         for (var i = 0; i < keys.length; i++) {
             vals.push([keys[i], atts[keys[i]]]);
         }
