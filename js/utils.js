@@ -4,6 +4,12 @@ function appendChildren(elem, children) {
     }
 }
 
+function removeChildren(elem) {
+    while(elem.children.length > 0) {
+        elem.removeChild(elem.children[0]);
+    }
+}
+
 function focusElem(elem) {
     document.getElementById(elem).focus();
 }

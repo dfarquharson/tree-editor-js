@@ -90,7 +90,6 @@ function makeNewTile() {
 function createNewTile(content) {
     if (__tileHolder.children.length < 30) {
         var newTile = document.createElement('div');
-        //var content = document.createElement('label');
         newTile.setAttribute('id', 'tile');
         newTile.appendChild(content);
         newTile.onmouseover = function () { unFocus(); focused = newTile;
@@ -142,9 +141,7 @@ function deleteSelectedTile() {
 }
 
 function deleteAllTiles() {
-    while(__tileHolder.children.length > 0) {
-        __tileHolder.removeChild(__tileHolder.children[0]);
-    }
+    removeChildren(__tileHolder);
 }
 
 // TEMPLATES

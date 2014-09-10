@@ -20,6 +20,7 @@
             <button id="clone-selected-tile" onclick="cloneSelectedTile()">Clone Selected Tile</button>
             <button id="delete-selected-tile" onclick="deleteSelectedTile()">Delete Selected Tile</button>
             <button id="mapper-template" onclick="setMapperTemplate()">Mapper Template</button>
+            <button id="delete-all-tiles" onclick="deleteAllTiles()">Clear Workspace</button>
             <div id="tile-holder">
                 <!-- tiles here -->
             </div>
@@ -43,7 +44,7 @@
             <button id="save-map-button" onclick="saveMap()" disabled>Publish Map</button>
             <button id="compile-map-button" onclick="compileMap()" disabled>Compile Map</button>
             <button id="clear-map-button" onclick="clearMap()">Clear Map</button>
-            <p id="map-area"></p>
+            <div id="map-area"></div>
         </div>
         <div id="minibuffer">
             <!-- do really cool minibuffer stuff here -->

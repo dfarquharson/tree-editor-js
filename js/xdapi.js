@@ -24,12 +24,7 @@ var loadMap = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var mymap = JSON.parse(xhr.response);
-            //document.getElementById('in-fqjn').textContent =
-                //'input-fqjn: ' + mymap.input.children[0].atts.fullyQualifiedJavaName;
-            //document.getElementById('out-fqjn').textContent =
-                //'output-fqjn: ' + getMapName(mymap);
-            document.getElementById('map-area').textContent = xhr.response;
+            appendChildren(document.getElementById('map-area'), renderMap(JSON.parse(xhr.response)));
             document.getElementById('save-map-button').removeAttribute('disabled');
             document.getElementById('compile-map-button').removeAttribute('disabled');
         }
