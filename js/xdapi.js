@@ -67,7 +67,10 @@ var compileMap = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            createNewTile(createCompilationResult(xhr.response));
+            console.log(xhr.status);
+            // this fucks everything up (which sorta makes sense)
+            // need this to be a download presented to the user
+            //createNewTile(createCompilationResult(xhr.response));
         }
     }
     xhr.open('POST', xtlbld, true);

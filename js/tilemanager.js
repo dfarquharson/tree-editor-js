@@ -11,8 +11,7 @@ function displayViewportSize(e) {
 window.addEventListener('resize', displayViewportSize, false);
 
 var __tileHolder = document.getElementById('tile-holder'),
-    //tiles = ['tile 1', 'tile 2', 'tile 3', 'tile 4', 'tile 5',
-             //'tile 6', 'tile 7', 'tile 8', 'tile 9'],
+    tiles = []
     focused = null,
     focusStyle = "3px solid green",
     unFocusStyle = "3px solid grey";

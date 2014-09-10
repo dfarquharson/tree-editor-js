@@ -11,7 +11,7 @@ var getXtlName = function (map, xtl) {
 var clearMap = function () {
     console.log('cleared map: ' +
             getMapName(JSON.parse(document.getElementById('map-area').textContent)));
-    //document.getElementById('map-area').textContent = '';
+    document.getElementById('map-area').textContent = '';
     document.getElementById('save-map-button').setAttribute('disabled', true);
     document.getElementById('compile-map-button').setAttribute('disabled', true);
 }

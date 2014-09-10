@@ -12,11 +12,9 @@ function log(x) {
     console.log(x);
 }
 
-function loadFunctions() {
+window.onload = function loadFunctions() {
     log('onload events firing');
     loadRepos();
     setMapperTemplate();
     focusElem('search-field');
 }
-
-window.onload(loadFunctions());
