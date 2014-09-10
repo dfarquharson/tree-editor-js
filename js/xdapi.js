@@ -60,6 +60,7 @@ var saveMap = function () {
 var compileMap = function () {
     var map_json = JSON.parse(document.getElementById('response-area').textContent);
     var map_name = getMapName(map_json);
+    console.log('compiling map: ' + map_name);
     var compilation_result = document.getElementById('compilation-result');
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {

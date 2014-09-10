@@ -10,10 +10,6 @@ function search() {
     console.log('You are searching, right?');
 }
 
-function log(x) {
-    console.log(x);
-}
-
 function fn_and_prevent(e, f, args) {
     e.preventDefault();
     return f.apply(null, args);
@@ -74,6 +70,10 @@ function keysPressed(e) {
         fn_and_prevent(e, saveMap);
     } else if (prefix() && keys[74]) {  // Ctrl Shift J
         fn_and_prevent(e, compileMap);
+    } else if (prefix() && keys[75]) {  // Ctrl Shift K
+        fn_and_prevent(e, clearMap);
+    } else if (prefix() && keys[77]) {  // Ctrl Shift M
+        fn_and_prevent(e, setMapperTemplate);
     } else if (keys[17] && keys[186]) { // Ctrl ;
         fn_and_prevent(e, log, ['Focus dat minibuffer']);
     } else if (keys[17] && keys[70]) {  // Ctrl F
