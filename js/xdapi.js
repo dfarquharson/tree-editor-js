@@ -24,7 +24,7 @@ var loadMap = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById('response-area').innerHTML = xhr.response;
+            document.getElementById('map-area').innerHTML = xhr.response;
             document.getElementById('save-map-button').removeAttribute('disabled');
             document.getElementById('compile-map-button').removeAttribute('disabled');
             var mymap = JSON.parse(xhr.response);
@@ -33,14 +33,14 @@ var loadMap = function () {
         }
     }
     var url = xdapi_root + 'map/' + document.getElementById('user-specified-map').value;
-    console.log(url);
+    console.log('loaded map: ' + url);
     xhr.open('GET', url, true);
     xhr.send();
 }
 
 var saveMap = function () {
     // need to ensure that content is there and is parseable as JSON
-    var map_json = JSON.parse(document.getElementById('response-area').textContent);
+    var map_json = JSON.parse(document.getElementById('map-area').textContent);
     var map_name = getMapName(map_json);
     //var xhr = new XMLHttpRequest();
     //xhr.onreadystatechange = function () {
@@ -58,7 +58,7 @@ var saveMap = function () {
 }
 
 var compileMap = function () {
-    var map_json = JSON.parse(document.getElementById('response-area').textContent);
+    var map_json = JSON.parse(document.getElementById('map-area').textContent);
     var map_name = getMapName(map_json);
     console.log('compiling map: ' + map_name);
     var compilation_result = document.getElementById('compilation-result');

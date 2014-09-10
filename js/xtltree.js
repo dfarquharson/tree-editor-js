@@ -6,8 +6,8 @@ var getMapName = function (map) {
 
 var clearMap = function () {
     console.log('cleared map: ' +
-            getMapName(JSON.parse(document.getElementById('response-area').textContent)));
-    document.getElementById('response-area').innerHTML = '';
+            getMapName(JSON.parse(document.getElementById('map-area').textContent)));
+    document.getElementById('map-area').innerHTML = '';
     document.getElementById('save-map-button').setAttribute('disabled', true);
     document.getElementById('compile-map-button').setAttribute('disabled', true);
 }
